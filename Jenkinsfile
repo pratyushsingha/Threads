@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploy on ec2...'
-                dir('/home/ec2-user/Threads') {
+                dir('/var/lib/jenkins/workspace/Threads') {
                     sh 'docker compose down --remove-orphans'
                     sh 'docker compose pull'
                     sh 'docker compose up -d --remove-orphans'
