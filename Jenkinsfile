@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Building the Docker Image...'
                 withCredentials([usernamePassword(
-                credentialId:'dockerHubCred',
+                credentialsId:'dockerHubCred',
                 passwordVariable:'dockerHubPass',
                 usernameVariable:'dockerHubUser')]) {
                     sh 'docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}'
