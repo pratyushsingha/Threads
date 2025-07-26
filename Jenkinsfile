@@ -20,7 +20,7 @@ pipeline {
                 credentialsId:'dockerHubCred',
                 passwordVariable:'dockerHubPass',
                 usernameVariable:'dockerHubUser')]) {
-                    sh 'docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}'
+                    sh 'docker login -u $dockerHubUser -p $dockerHubPass'
                     sh 'docker compose build'
                     sh 'docker tag threads:latest $dockerHubUser/threads:latest'
                     echo 'Pushing the Docker Image to Docker Hub...'
