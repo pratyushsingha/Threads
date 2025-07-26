@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  frontend:
+    container_name: threads_client
+    build: 
+      context: ./client
+    image: pratyush044/threads_client:latest
+    env_file:
+      - ./client/.env
+    ports:
+      - "4173:4173"
+    depends_on:
+      - backend
+
+  backend:
+    container_name: threads_server
+    build:
+      context: ./server
+    image: pratyush044/threads_server:latest
+    env_file:
+      - ./server/.env
+    ports:
+      - "8080:8080"
+    
